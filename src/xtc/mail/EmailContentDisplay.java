@@ -7,7 +7,6 @@ import xtc.model.gsdata.NicknameTranslate;
 
 public class EmailContentDisplay 
 {
-
 	/**
 	 * getEmailContentWillDisplay
 	 * @param nickname
@@ -15,11 +14,15 @@ public class EmailContentDisplay
 	 */
 	public String getEmailContentWillDisplay(Nickname nickname) 
 	{
-		String resultString = "" ;
-		UtilSplit utilSplit = new UtilSplit() ;
+		String resultString = "【前日日本流行每日速报详细数据】\n\n" 
+					+ "头条阅读数 : " + nickname.getReadnum_max() + "\n" 
+					+ "总阅读相对上次的增量(负数即为下降) : " + nickname.getReadnum_all_up() + "\n\n";
+		
+		UtilSplit utilSplit = new UtilSplit() ;		
 		String[] namelist = utilSplit.getFiledName(nickname) ;
-
-		for (String name : namelist) {
+		
+		for (String name : namelist) 
+		{
 			String val = "" ;
 			if (utilSplit.getFieldValueByName(name,nickname) != null) {
 				val = utilSplit.getFieldValueByName(name,nickname).toString() ;
@@ -29,7 +32,7 @@ public class EmailContentDisplay
 				continue ;
 			}
 			resultString += zhongwen + " : " + val + "\n" ;
-		}		
+		}
 		
 		return resultString ;
 	}

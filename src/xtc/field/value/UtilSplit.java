@@ -28,7 +28,7 @@ public class UtilSplit {
     	Field[] fields=o.getClass().getDeclaredFields();
        	String[] fieldNames=new String[fields.length];
     	for(int i=0;i<fields.length;i++){
-    		System.out.println(fields[i].getType());
+    		//System.out.println(fields[i].getType());
     		fieldNames[i]=fields[i].getName();
     	}
     	return fieldNames;

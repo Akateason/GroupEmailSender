@@ -1,6 +1,5 @@
 package xtc.model.gsdata;
 
-
 /**  
  * @author teason
  * 公众号
