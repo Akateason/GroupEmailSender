@@ -13,7 +13,7 @@ public class XTLoopByDay implements ServletContextListener {
 	private Timer timer = null ;
 //	private final static long kTimerTaskDuration = 1000 * 10 ; 	// FOR TEST 
 	private final static long kTimerTaskDuration = 24 * 60 * 60 * 1000 ; 
-
+	
 	@Override
 	public void contextDestroyed(ServletContextEvent arg0) {		
 		timer.cancel(); // RELEASE

@@ -16,7 +16,9 @@ import xtc.model.gsdata.Nickname;
 public class FetchGsdata {
 
 	//"http://114.55.74.220:8080/gsdata/api" ;
-	private final static String kUrlGsdataApi	= "http://localhost:8080/gsdata/api" ; 
+	//"http://localhost:8080/gsdata/api" ;
+	//"http://wei.subaojiang.com:8080/gsdata/api" ;
+	private final static String kUrlGsdataApi	= "http://114.55.74.220:8080/gsdata/api" ; 
 	private final static String kSName7Days	  	= "wx/opensearchapi/nickname_order_list" ;
 	private final static String kParamJsonStr 	= "{\"num\":7,\"sort\":\"asc\",\"wx_nickname\":\"日本流行每日速报\"}" ;
 	
