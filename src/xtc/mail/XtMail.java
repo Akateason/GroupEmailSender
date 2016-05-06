@@ -10,6 +10,8 @@ import javax.mail.internet.MimeMessage;
 import xtc.model.gsdata.Nickname;
 import xtc.data.fetch.FetchGsdata;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
 
@@ -55,7 +57,18 @@ public class XtMail {
 	}
 	
 	public static void doSendMail() throws Exception 
-	{
+	{	
+		Calendar calendar = Calendar.getInstance() ;
+		calendar.set(Calendar.HOUR_OF_DAY, 10); 
+		calendar.set(Calendar.MINUTE, 0); 
+		calendar.set(Calendar.SECOND, 0); 
+		Date tenClock = calendar.getTime();
+		Date now = new Date() ;
+	    long diff = now.getTime() - tenClock.getTime() ;
+		if (diff > 1000 * 60 * 60) {
+			return ;
+		}
+		
 		FetchGsdata fetcher = new FetchGsdata() ;	
 		// GET SUBAO DETAIL NICKNAME INFO .
 		Nickname nickname = fetcher.fetchSubaoNickname() ; 
@@ -78,6 +91,11 @@ public class XtMail {
 				kEmailReceiveName ,
 				sEmailTitle , 
 				emailContentStr) ;		
+	}
+
+	private static long abs(long l) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }
