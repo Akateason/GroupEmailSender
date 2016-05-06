@@ -15,7 +15,7 @@ public class EmailContentDisplay
 	public String getEmailContentWillDisplay(Nickname nickname) 
 	{
 		String resultString = "【前日日本流行每日速报详细数据】\n\n" 
-					+ "头条阅读数 : " + nickname.getReadnum_max() + "\n" 
+					+ "最高阅读数 : " + nickname.getReadnum_max() + "\n" 
 					+ "总阅读相对上次的增量(负数即为下降) : " + nickname.getReadnum_all_up() + "\n\n";
 		
 		UtilSplit utilSplit = new UtilSplit() ;		

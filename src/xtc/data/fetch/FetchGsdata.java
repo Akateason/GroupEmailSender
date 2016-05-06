@@ -1,8 +1,10 @@
 package xtc.data.fetch;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -39,25 +41,34 @@ public class FetchGsdata {
 		Nickname nickname = gson.fromJson(lastDayInfoElement, Nickname.class) ;
 		return nickname ;
 	}
+	
+	public String fetchDateString(Nickname nickname) throws ParseException {
+		String dateOrigin = nickname.getResult_day() ;
+		SimpleDateFormat oldFormat = new SimpleDateFormat( "yyyyMMdd" );
+		SimpleDateFormat newFormat = new SimpleDateFormat( "yyyy-MM-dd" );
+		Date date = oldFormat.parse(dateOrigin) ;
+		return newFormat.format(date) ;
+	}
 		
 	private final static String kResultDay 		= "wx/wxapi/result_day" ;
 	/**
 	 * 前日 排名
+	 * @param String dateString . yyyy-MM-dd
 	 */
-	public String fetchSortFromTwoDaysAgo() {
+	public String fetchSortFromTwoDaysAgo(String dateString) {
 		
 		String returnString = "【前日竞品排名】\n\n" ;
 		
-		Calendar calendar = Calendar.getInstance() ;
-		calendar.add(Calendar.DATE, -2);
-		String dayBeforeYesterday = new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime()) ;
+//		Calendar calendar = Calendar.getInstance() ;
+//		calendar.add(Calendar.DATE, -2);
+//		String dayBeforeYesterday = new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime()) ;		
 //		System.out.println(dayBeforeYesterday);
 				
 		// SETUP .
 		String spaceName = "spaceName=" + kResultDay ;
 		String jsonStr = "&jsonStr=" 
 						+ "{\"order\":\"desc\",\"day\":\"" 
-						+ dayBeforeYesterday
+						+ dateString
 						+ "\",\"groupid\":\"38504\",\"sort\":\"wci\"}" ;
 		// REQUEST .
 		String resultStr = HttpRequest.sendGet(kUrlGsdataApi, spaceName + jsonStr) ;
