@@ -43,7 +43,7 @@ class contractTask extends TimerTask {
         System.out.println("本次执行该线程的时间：" + date);
         
         try {
-			XtMail.doSendMail();
+			XtMail.actionInLoop();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
