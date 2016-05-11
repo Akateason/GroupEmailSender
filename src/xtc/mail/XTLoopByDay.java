@@ -39,7 +39,8 @@ public class XTLoopByDay implements ServletContextListener {
 class contractTask extends TimerTask {
 	
 	public void run() {
-        Date date = new Date(this.scheduledExecutionTime());
+        
+		Date date = new Date(this.scheduledExecutionTime());
         System.out.println("本次执行该线程的时间：" + date);
         
         try {

@@ -24,8 +24,8 @@ public class XtMail {
 	private final static String kEmailSenderPassword = "123hehedA" ;	
 	// 接受者
 	private final static String kEmailReceiveName	 = "rank@subaojiang.com" ; 			
-//	private final static String kEmailReceiveName	 = "xietianchen@subaojiang.com" ;  // TEST
-
+//	private final static String kEmailReceiveName	 = "xietianchen@subaojiang.com" ; // TEST
+	
 	public static void sendMail(String fromMail, String user, String password, String toMail, String mailTitle,
 			String mailContent) throws Exception 
 	{
@@ -67,7 +67,7 @@ public class XtMail {
 		return (diff <= 1000 * 60 * 60)  ;
 	}
 	
-
+	
 	// URL [ fetch email info ]
 	private final static String kUrlFetchInfo 		= "http://localhost:8080/GsdataApp/note/fetchGroupSendInfo" ;		
 	
