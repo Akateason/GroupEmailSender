@@ -101,6 +101,9 @@ public class XtMail {
 					kEmailReceiveName ,
 					sEmailTitle , 
 					sEmailDetail) ;	
+			
+			// DingDing
+			HttpRequest.sendGet("http://localhost:8080/GsdataApp/ding/index", "") ;
 		} 		
 	}
 
