@@ -69,7 +69,7 @@ public class XtMail {
 	
 	
 	// URL [ fetch email info ]
-	private final static String kUrlFetchInfo 		= "http://localhost:8080/GsdataApp/note/fetchGroupSendInfo" ;		
+	private final static String kUrlFetchInfo 		= "http://localhost/GsdataApp/note/fetchGroupSendInfo" ;		
 	
 	/**
 	 * actionInLoop
@@ -103,7 +103,7 @@ public class XtMail {
 					sEmailDetail) ;	
 			
 			// DingDing
-			HttpRequest.sendGet("http://localhost:8080/GsdataApp/ding/index", "") ;
+			HttpRequest.sendGet("http://localhost/GsdataApp/ding/index", "") ;
 		} 		
 	}
 
