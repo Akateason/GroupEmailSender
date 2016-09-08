@@ -64,7 +64,7 @@ public class XtMail {
 		Date now = new Date() ;
 	    long diff = now.getTime() - tenClock.getTime() ;
 		
-		return (diff <= 1000 * 60 * 60)  ;
+		return (diff <= 1000 * 60 * 10)  ;
 	}
 	
 	
